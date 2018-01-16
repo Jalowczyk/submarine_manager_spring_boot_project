@@ -1,8 +1,6 @@
 package com.codecool.submarinemanager.crewman;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/crewmen")
@@ -19,4 +17,8 @@ public class CrewmanController {
         return this.crewmanService.findAllCrewmen();
     }
 
+    @GetMapping(path = "/{id}")
+    public Crewman show(@PathVariable Integer id) {
+        return this.crewmanService.findById(id);
+    }
 }
