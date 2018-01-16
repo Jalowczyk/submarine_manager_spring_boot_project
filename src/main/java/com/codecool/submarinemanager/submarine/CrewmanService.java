@@ -16,4 +16,8 @@ public class CrewmanService {
     public Iterable<Crewman> findAllCrewmen() {
         return crewmanRepository.findAll();
     }
+
+    public Crewman findById(Integer id) {
+        return crewmanRepository.findOne(id);
+    }
 }
