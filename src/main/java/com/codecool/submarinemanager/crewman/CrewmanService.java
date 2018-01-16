@@ -24,7 +24,6 @@ public class CrewmanService {
 
     void save(Crewman crewman) {
         crewmanRepository.save(crewman);
-
     }
 
     void delete(Crewman crewman) {
