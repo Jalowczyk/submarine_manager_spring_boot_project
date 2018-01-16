@@ -19,6 +19,10 @@ public class CrewmanService {
         return crewmanRepository.findOne(id);
     }
 
+    void save(Crewman crewman) {
+        crewmanRepository.save(crewman);
+    }
+
     void delete(Crewman crewman) {
         crewmanRepository.delete(crewman);
     }
