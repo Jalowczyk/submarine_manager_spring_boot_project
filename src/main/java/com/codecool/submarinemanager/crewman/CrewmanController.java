@@ -12,9 +12,14 @@ public class CrewmanController {
         this.crewmanService = crewmanService;
     }
 
-    @PostMapping(path = "")
+    @GetMapping(path = "")
     public Iterable<Crewman> showAll() {
         return this.crewmanService.findAllCrewmen();
+    }
+
+    @PostMapping(path = "")
+    public String create(@RequestBody Crewman crewman) {
+        return this.crewmanService.save(crewman);
     }
 
     @GetMapping(path = "/{id}")
