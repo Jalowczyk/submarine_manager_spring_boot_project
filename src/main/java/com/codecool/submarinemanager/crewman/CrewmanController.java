@@ -1,5 +1,6 @@
 package com.codecool.submarinemanager.crewman;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,4 +13,10 @@ public class CrewmanController {
     public CrewmanController(CrewmanService crewmanService) {
         this.crewmanService = crewmanService;
     }
+
+    @PostMapping(path = "")
+    public Iterable<Crewman> showAll() {
+        return this.crewmanService.findAllCrewmen();
+    }
+
 }
