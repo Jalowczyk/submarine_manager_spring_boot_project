@@ -22,13 +22,12 @@ public class CrewmanService {
         return crewmanRepository.findOne(id);
     }
 
-    String save(Crewman crewman) {
+    void save(Crewman crewman) {
         crewmanRepository.save(crewman);
-        return "created";
+
     }
 
-    String delete(Crewman crewman) {
+    void delete(Crewman crewman) {
         crewmanRepository.delete(crewman);
-        return "deleted";
     }
 }
