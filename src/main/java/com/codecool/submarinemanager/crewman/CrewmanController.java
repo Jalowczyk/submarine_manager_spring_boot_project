@@ -1,5 +1,6 @@
 package com.codecool.submarinemanager.crewman;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,8 +19,9 @@ public class CrewmanController {
     }
 
     @PostMapping(path = "")
-    public String create(@RequestBody Crewman crewman) {
-        return this.crewmanService.save(crewman);
+    @ResponseStatus(HttpStatus.CREATED)
+    public void create(@RequestBody Crewman crewman) {
+        this.crewmanService.save(crewman);
     }
 
     @GetMapping(path = "/{id}")
