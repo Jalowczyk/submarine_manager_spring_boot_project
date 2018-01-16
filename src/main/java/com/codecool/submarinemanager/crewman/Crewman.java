@@ -17,17 +17,15 @@ public class Crewman {
     private String lastName;
     @NotNull
     private String rank;
-    @ManyToOne
-    private Submarine submarine;
 
-    public Crewman(Integer id, String firstName, String lastName, String rank, Submarine submarine) {
-
+    public Crewman(Integer id, String firstName, String lastName, String rank) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.rank = rank;
-        this.submarine = submarine;
     }
+
+    private Crewman() {};
 
     public Integer getId() {
         return id;
@@ -59,13 +57,5 @@ public class Crewman {
 
     public void setRank(String rank) {
         this.rank = rank;
-    }
-
-    public Submarine getSubmarine() {
-        return submarine;
-    }
-
-    public void setSubmarine(Submarine submarine) {
-        this.submarine = submarine;
     }
 }
