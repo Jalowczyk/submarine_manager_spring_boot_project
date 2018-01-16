@@ -1,5 +1,8 @@
 package com.codecool.submarinemanager.submarine;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class SubmarineService {
 
     private SubmarineRepository submarineRepository;

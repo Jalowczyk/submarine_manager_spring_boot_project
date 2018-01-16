@@ -2,7 +2,10 @@ package com.codecool.submarinemanager.crewman;
 
 import com.codecool.submarinemanager.crewman.Crewman;
 import com.codecool.submarinemanager.crewman.CrewmanRepository;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CrewmanService {
 
     private CrewmanRepository crewmanRepository;
