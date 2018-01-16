@@ -7,4 +7,8 @@ public class SubmarineService {
     public SubmarineService(SubmarineRepository submarineRepository) {
         this.submarineRepository = submarineRepository;
     }
+
+    Iterable<Submarine> findAll() {
+        return submarineRepository.findAll();
+    }
 }
