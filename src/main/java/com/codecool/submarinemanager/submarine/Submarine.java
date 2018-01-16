@@ -15,7 +15,7 @@ public class Submarine {
     private String category;
     @NotNull
     private String name;
-    @OneToMany()
+    @OneToMany
     @JoinColumn(name = "submarine_id")
     private List<Crewman> crewmenList;
 
