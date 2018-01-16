@@ -15,4 +15,8 @@ public class SubmarineService {
     Submarine findById(Integer id) {
         return submarineRepository.findOne(id);
     }
+
+    void save(Submarine submarine) {
+        submarineRepository.save(submarine);
+    }
 }
