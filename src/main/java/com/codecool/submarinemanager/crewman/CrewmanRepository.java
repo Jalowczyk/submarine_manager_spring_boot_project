@@ -9,6 +9,4 @@ import java.util.List;
 @Repository
 public interface CrewmanRepository extends CrudRepository<Crewman, Integer> {
 
-    List<Crewman> findAllCrewman();
-    List<Crewman> findAllBySubmarine(Submarine sumbarine);
 }
