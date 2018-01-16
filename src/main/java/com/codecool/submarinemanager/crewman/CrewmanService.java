@@ -18,4 +18,8 @@ public class CrewmanService {
     Crewman findById(Integer id) {
         return crewmanRepository.findOne(id);
     }
+
+    void delete(Crewman crewman) {
+        crewmanRepository.delete(crewman);
+    }
 }
