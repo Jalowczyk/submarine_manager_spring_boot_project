@@ -3,8 +3,6 @@ package com.codecool.submarinemanager.submarine;
 import com.codecool.submarinemanager.crewman.Crewman;
 import com.codecool.submarinemanager.crewman.CrewmanRepository;
 
-import java.util.List;
-
 public class CrewmanService {
 
     private CrewmanRepository crewmanRepository;
