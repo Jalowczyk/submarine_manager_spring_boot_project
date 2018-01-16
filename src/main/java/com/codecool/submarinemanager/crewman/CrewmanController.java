@@ -24,6 +24,12 @@ public class CrewmanController {
         this.crewmanService.save(crewman);
     }
 
+    @PostMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@RequestBody Crewman crewman) {
+        this.crewmanService.delete(crewman);
+    }
+
     @GetMapping(path = "/{id}")
     public Crewman show(@PathVariable Integer id) {
         return this.crewmanService.findById(id);
