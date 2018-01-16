@@ -11,4 +11,8 @@ public class SubmarineService {
     Iterable<Submarine> findAll() {
         return submarineRepository.findAll();
     }
+
+    Submarine findById(Integer id) {
+        return submarineRepository.findOne(id);
+    }
 }
