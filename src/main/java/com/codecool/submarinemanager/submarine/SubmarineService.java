@@ -19,4 +19,8 @@ public class SubmarineService {
     void save(Submarine submarine) {
         submarineRepository.save(submarine);
     }
+
+    void delete(Submarine submarine) {
+        submarineRepository.delete(submarine);
+    }
 }
