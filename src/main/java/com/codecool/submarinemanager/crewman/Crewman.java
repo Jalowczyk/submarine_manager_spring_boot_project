@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 public class Crewman {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotNull
     private String firstName;

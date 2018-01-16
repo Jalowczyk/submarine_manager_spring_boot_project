@@ -9,13 +9,13 @@ import java.util.List;
 @Entity
 public class Submarine {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotNull
     private String category;
     @NotNull
     private String name;
-    @OneToMany
+    @OneToMany()
     @JoinColumn(name = "submarine_id")
     private List<Crewman> crewmenList;
 
