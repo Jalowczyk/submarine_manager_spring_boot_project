@@ -2,9 +2,7 @@ package com.codecool.submarinemanager.submarine;
 
 import com.codecool.submarinemanager.crewman.Crewman;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -16,8 +14,11 @@ public class Submarine {
     private String category;
     @NotNull
     private String name;
-    @ManyToOne
+    @OneToMany
+    @JoinColumn(name = "submarine_id")
     private List<Crewman> crewmenList;
+
+    private Submarine() {};
 
     public Submarine(Integer id, String category, String name) {
         this.id = id;
