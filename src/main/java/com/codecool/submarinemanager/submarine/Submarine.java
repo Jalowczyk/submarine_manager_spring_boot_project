@@ -16,8 +16,7 @@ public class Submarine {
     private String category;
     @NotEmpty
     private String name;
-    @OneToMany
-    @JoinColumn(name = "submarine_id")
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Crewman> crewmenList;
 
     public Integer getId() {

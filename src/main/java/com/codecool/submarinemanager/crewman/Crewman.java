@@ -22,6 +22,14 @@ public class Crewman {
     @ManyToOne
     private Submarine sumbarine;
 
+    public Submarine getSumbarine() {
+        return sumbarine;
+    }
+
+    public void setSumbarine(Submarine sumbarine) {
+        this.sumbarine = sumbarine;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -1,32 +1,9 @@
 package com.codecool.submarinemanager.crewman;
 
-import com.codecool.submarinemanager.crewman.Crewman;
-import com.codecool.submarinemanager.crewman.CrewmanRepository;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+public interface CrewmanService {
 
-@Service
-public class CrewmanService {
-
-    private CrewmanRepository crewmanRepository;
-
-    CrewmanService(CrewmanRepository crewmanRepository) {
-        this.crewmanRepository = crewmanRepository;
-    }
-
-    Iterable<Crewman> findAllCrewmen() {
-        return crewmanRepository.findAll();
-    }
-
-    Crewman findById(Integer id) {
-        return crewmanRepository.findOne(id);
-    }
-
-    void save(Crewman crewman) {
-        crewmanRepository.save(crewman);
-    }
-
-    void delete(Integer id) {
-        crewmanRepository.delete(id);
-    }
+    Iterable<Crewman> findAllCrewmen();
+    Crewman findCrewmanById(Integer id);
+    void saveCrewman(Crewman crewman);
+    void deleteCrewman(Integer id);
 }

@@ -1,6 +1,5 @@
 package com.codecool.submarinemanager.submarine;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,21 +14,21 @@ public class SubmarineController {
 
     @GetMapping(path = "")
     public Iterable<Submarine> showAll() {
-        return this.submarineService.findAll();
+        return this.submarineService.findAllSubmarines();
     }
 
     @PostMapping(path = "")
     public void create(@RequestBody Submarine submarine) {
-        this.submarineService.save(submarine);
+        this.submarineService.saveSubmarine(submarine);
     }
 
     @DeleteMapping(path = "/{id}")
     public void delete(@PathVariable Integer id) {
-        this.submarineService.delete(id);
+        this.submarineService.deleteSubmarine(id);
     }
 
     @GetMapping(path = "/{id}")
     public Submarine show(@PathVariable Integer id) {
-        return this.submarineService.findById(id);
+        return this.submarineService.findSubmarineById(id);
     }
 }
