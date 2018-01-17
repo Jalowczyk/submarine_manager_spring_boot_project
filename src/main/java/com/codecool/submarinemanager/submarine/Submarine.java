@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,9 +17,9 @@ public class Submarine {
     private String category;
     @NotEmpty
     private String name;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JsonIgnore
-    private List<Crewman> crewmenList;
+    private List<Crewman> crewmenList = new ArrayList<>();
 
     public Integer getId() {
         return id;
