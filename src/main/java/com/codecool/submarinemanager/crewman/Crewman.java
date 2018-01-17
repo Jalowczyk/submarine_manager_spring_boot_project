@@ -20,7 +20,6 @@ public class Crewman {
     private String rank;
 
     @ManyToOne
-    @JoinColumn(name = "crewman_id")
     private Submarine sumbarine;
 
     public Integer getId() {
