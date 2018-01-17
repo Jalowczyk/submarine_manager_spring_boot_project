@@ -1,5 +1,6 @@
 package com.codecool.submarinemanager.submarine;
 
+import com.codecool.submarinemanager.exception.IdDoesNotExistException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,12 +24,12 @@ public class SubmarineController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public void delete(@PathVariable Integer id) {
+    public void delete(@PathVariable Integer id) throws IdDoesNotExistException{
         this.submarineService.deleteSubmarine(id);
     }
 
     @GetMapping(path = "/{id}")
-    public Submarine show(@PathVariable Integer id) {
+    public Submarine show(@PathVariable Integer id) throws IdDoesNotExistException{
         return this.submarineService.findSubmarineById(id);
     }
 }
