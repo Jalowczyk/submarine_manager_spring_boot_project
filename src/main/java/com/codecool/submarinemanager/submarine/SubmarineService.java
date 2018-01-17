@@ -23,7 +23,7 @@ public class SubmarineService {
         submarineRepository.save(submarine);
     }
 
-    void delete(Submarine submarine) {
-        submarineRepository.delete(submarine);
+    void delete(Integer id) {
+        submarineRepository.delete(id);
     }
 }

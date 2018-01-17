@@ -26,7 +26,7 @@ public class CrewmanService {
         crewmanRepository.save(crewman);
     }
 
-    void delete(Crewman crewman) {
-        crewmanRepository.delete(crewman);
+    void delete(Integer id) {
+        crewmanRepository.delete(id);
     }
 }
