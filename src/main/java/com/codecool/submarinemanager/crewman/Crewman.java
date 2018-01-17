@@ -21,14 +21,14 @@ public class Crewman {
 
     @ManyToOne
     @JoinColumn(name = "submarine_id")
-    private Submarine sumbarine;
+    private Submarine submarine;
 
-    public Submarine getSumbarine() {
-        return sumbarine;
+    public Submarine getSubmarine() {
+        return submarine;
     }
 
-    public void setSumbarine(Submarine sumbarine) {
-        this.sumbarine = sumbarine;
+    public void setSubmarine(Submarine submarine) {
+        this.submarine = submarine;
     }
 
     public Integer getId() {
