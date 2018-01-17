@@ -14,27 +14,28 @@ public class SubmarineController {
     }
 
     @GetMapping(path = "")
-    public Iterable<Submarine> showAll() {
+    public Iterable<Submarine> showAllSubmarines() {
         return this.submarineService.findAllSubmarines();
     }
 
     @PostMapping(path = "")
-    public void create(@RequestBody Submarine submarine) {
+    public void createSubmarine(@RequestBody Submarine submarine) {
         this.submarineService.saveSubmarine(submarine);
     }
 
     @DeleteMapping(path = "/{id}")
-    public void delete(@PathVariable Integer id) throws IdDoesNotExistException{
+    public void deleteSubmarine(@PathVariable Integer id) throws IdDoesNotExistException{
         this.submarineService.deleteSubmarine(id);
     }
 
     @GetMapping(path = "/{id}")
-    public Submarine show(@PathVariable Integer id) throws IdDoesNotExistException{
+    public Submarine showSubmarine(@PathVariable Integer id) throws IdDoesNotExistException{
         return this.submarineService.findSubmarineById(id);
     }
 
     @PutMapping(path = "/{id}")
-    public void update(@PathVariable Integer id) throws IdDoesNotExistException {
+    public void updateSubmarine(@PathVariable Integer id) throws IdDoesNotExistException {
         this.submarineService.updateSubmarine(id);
     }
+
 }
