@@ -32,4 +32,9 @@ public class CrewmanController {
     public Crewman show(@PathVariable Integer id) throws IdDoesNotExistException {
         return this.crewmanService.findCrewmanById(id);
     }
+
+    @PutMapping(path = "/{id}")
+    public void update(@PathVariable Integer id) throws IdDoesNotExistException {
+        this.crewmanService.updateCrewman(id);
+    }
 }
