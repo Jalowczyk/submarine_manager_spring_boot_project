@@ -20,6 +20,24 @@ public class CrewmanServiceImpl implements CrewmanService {
     }
 
     public Crewman findCrewmanById(Integer id) throws IdDoesNotExistException {
+        return returnCrewmanIfExists(id);
+    }
+
+    public void saveCrewman(Crewman crewman) {
+        crewmanRepository.save(crewman);
+    }
+
+    public void deleteCrewman(Integer id) throws IdDoesNotExistException {
+        Crewman crewman = returnCrewmanIfExists(id);
+        crewmanRepository.delete(crewman);
+    }
+
+    public void updateCrewman(Integer id) throws IdDoesNotExistException {
+        Crewman crewman = returnCrewmanIfExists(id);
+        crewmanRepository.save(crewman);
+    }
+
+    private Crewman returnCrewmanIfExists(Integer id) throws IdDoesNotExistException {
 
         Crewman crewman = crewmanRepository.findOne(id);
 
@@ -28,19 +46,5 @@ public class CrewmanServiceImpl implements CrewmanService {
         }
 
         return crewman;
-    }
-
-    public void saveCrewman(Crewman crewman) {
-        crewmanRepository.save(crewman);
-    }
-
-    public void deleteCrewman(Integer id) throws IdDoesNotExistException {
-        Crewman crewman = crewmanRepository.findOne(id);
-
-        if (crewman == null) {
-            throw new IdDoesNotExistException();
-        }
-
-        crewmanRepository.delete(id);
     }
 }

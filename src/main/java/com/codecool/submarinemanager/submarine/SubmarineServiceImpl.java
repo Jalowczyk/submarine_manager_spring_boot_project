@@ -17,13 +17,7 @@ public class SubmarineServiceImpl implements SubmarineService {
     }
 
     public Submarine findSubmarineById(Integer id) throws IdDoesNotExistException {
-        Submarine submarine = submarineRepository.findOne(id);
-
-        if (submarine == null) {
-            throw new IdDoesNotExistException();
-        }
-
-        return submarine;
+        return returnSubmarineIfExists(id);
     }
 
     public void saveSubmarine(Submarine submarine) {
@@ -31,21 +25,22 @@ public class SubmarineServiceImpl implements SubmarineService {
     }
 
     public void deleteSubmarine(Integer id) throws IdDoesNotExistException {
-        Submarine submarine = submarineRepository.findOne(id);
-
-        if (submarine == null) {
-            throw new IdDoesNotExistException();
-        }
+        Submarine submarine = returnSubmarineIfExists(id);
         submarineRepository.delete(id);
     }
 
     public void updateSubmarine(Integer id) throws IdDoesNotExistException {
+        Submarine submarine = returnSubmarineIfExists(id);
+        submarineRepository.save(submarine);
+    }
+
+    private Submarine returnSubmarineIfExists(Integer id) throws IdDoesNotExistException {
         Submarine submarine = submarineRepository.findOne(id);
 
         if (submarine == null) {
             throw new IdDoesNotExistException();
         }
 
-        submarineRepository.save(submarine);
+        return submarine;
     }
 }
