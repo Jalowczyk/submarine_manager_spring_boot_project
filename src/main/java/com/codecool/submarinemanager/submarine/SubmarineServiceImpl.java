@@ -38,7 +38,7 @@ public class SubmarineServiceImpl implements SubmarineService {
         Submarine submarine = submarineRepository.findOne(id);
 
         if (submarine == null) {
-            throw new IdDoesNotExistException();
+            throw new IdDoesNotExistException("no record of such id in database");
         }
 
         return submarine;

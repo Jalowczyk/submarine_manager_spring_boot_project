@@ -42,7 +42,7 @@ public class CrewmanServiceImpl implements CrewmanService {
         Crewman crewman = crewmanRepository.findOne(id);
 
         if (crewman == null) {
-            throw new IdDoesNotExistException();
+            throw new IdDoesNotExistException("no record of such id in database");
         }
 
         return crewman;
