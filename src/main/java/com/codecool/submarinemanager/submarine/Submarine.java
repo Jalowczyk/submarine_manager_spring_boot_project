@@ -1,10 +1,10 @@
 package com.codecool.submarinemanager.submarine;
 
 import com.codecool.submarinemanager.crewman.Crewman;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -17,6 +17,7 @@ public class Submarine {
     @NotEmpty
     private String name;
     @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Crewman> crewmenList;
 
     public Integer getId() {
