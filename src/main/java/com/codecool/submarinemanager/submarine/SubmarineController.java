@@ -23,7 +23,7 @@ public class SubmarineController {
         this.submarineService.save(submarine);
     }
 
-    @PostMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}")
     public void delete(@PathVariable Integer id) {
         this.submarineService.delete(id);
     }

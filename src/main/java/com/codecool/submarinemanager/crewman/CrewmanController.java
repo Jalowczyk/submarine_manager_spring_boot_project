@@ -23,7 +23,7 @@ public class CrewmanController {
         this.crewmanService.save(crewman);
     }
 
-    @PostMapping(path = "/{id}")
+    @DeleteMapping(path = "/{id}")
     public void delete(@PathVariable Integer id) {
         this.crewmanService.delete(id);
     }
