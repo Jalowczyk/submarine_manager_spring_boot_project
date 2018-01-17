@@ -26,8 +26,8 @@ public class CrewmanController {
 
     @PostMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@RequestBody Crewman crewman) {
-        this.crewmanService.delete(crewman);
+    public void delete(@PathVariable Integer id) {
+        this.crewmanService.delete(id);
     }
 
     @GetMapping(path = "/{id}")
