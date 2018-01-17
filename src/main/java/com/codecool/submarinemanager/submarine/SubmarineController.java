@@ -1,7 +1,10 @@
 package com.codecool.submarinemanager.submarine;
 
+import com.codecool.submarinemanager.crewman.Crewman;
 import com.codecool.submarinemanager.exception.IdDoesNotExistException;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/submarines")
@@ -38,4 +41,8 @@ public class SubmarineController {
         this.submarineService.updateSubmarine(id);
     }
 
+    @GetMapping(path = "/{id}/crewmen")
+    public Iterable<Crewman> showSubmarinesCrewmen(@PathVariable Integer id) throws IdDoesNotExistException {
+        return this.submarineService.showSubmarinesCrewmen(id);
+    }
 }

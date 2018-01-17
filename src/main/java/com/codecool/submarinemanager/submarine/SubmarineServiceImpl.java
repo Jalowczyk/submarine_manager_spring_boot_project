@@ -1,7 +1,10 @@
 package com.codecool.submarinemanager.submarine;
 
+import com.codecool.submarinemanager.crewman.Crewman;
 import com.codecool.submarinemanager.exception.IdDoesNotExistException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class SubmarineServiceImpl implements SubmarineService {
@@ -32,6 +35,11 @@ public class SubmarineServiceImpl implements SubmarineService {
     public void updateSubmarine(Integer id) throws IdDoesNotExistException {
         Submarine submarine = returnSubmarineIfExists(id);
         submarineRepository.save(submarine);
+    }
+
+    public Iterable<Crewman> showSubmarinesCrewmen(Integer id) throws IdDoesNotExistException {
+        Submarine submarine = returnSubmarineIfExists(id);
+        return submarine.getCrewmenList();
     }
 
     private Submarine returnSubmarineIfExists(Integer id) throws IdDoesNotExistException {
