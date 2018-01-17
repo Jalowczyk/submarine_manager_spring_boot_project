@@ -8,4 +8,5 @@ public interface CrewmanService {
     Crewman findCrewmanById(Integer id) throws IdDoesNotExistException;
     void saveCrewman(Crewman crewman);
     void deleteCrewman(Integer id) throws IdDoesNotExistException;
+    void updateCrewman(Integer id) throws IdDoesNotExistException;
 }
