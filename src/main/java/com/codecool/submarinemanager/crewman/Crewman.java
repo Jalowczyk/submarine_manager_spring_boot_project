@@ -1,6 +1,7 @@
 package com.codecool.submarinemanager.crewman;
 
 import com.codecool.submarinemanager.submarine.Submarine;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,12 +12,16 @@ public class Crewman {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotNull
+    @NotEmpty
     private String firstName;
-    @NotNull
+    @NotEmpty
     private String lastName;
     @NotNull
     private String rank;
+
+    @ManyToOne
+    @JoinColumn(name = "crewman_id")
+    private Submarine sumbarine;
 
     public Integer getId() {
         return id;
