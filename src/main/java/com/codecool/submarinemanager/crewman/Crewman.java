@@ -18,15 +18,6 @@ public class Crewman {
     @NotNull
     private String rank;
 
-    public Crewman(Integer id, String firstName, String lastName, String rank) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.rank = rank;
-    }
-
-    private Crewman() {};
-
     public Integer getId() {
         return id;
     }

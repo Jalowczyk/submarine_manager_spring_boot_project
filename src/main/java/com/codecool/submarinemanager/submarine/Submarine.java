@@ -19,14 +19,6 @@ public class Submarine {
     @JoinColumn(name = "submarine_id")
     private List<Crewman> crewmenList;
 
-    private Submarine() {};
-
-    public Submarine(Integer id, String category, String name) {
-        this.id = id;
-        this.category = category;
-        this.name = name;
-    }
-
     public Integer getId() {
         return id;
     }
