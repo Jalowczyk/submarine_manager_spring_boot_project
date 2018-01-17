@@ -19,13 +19,11 @@ public class SubmarineController {
     }
 
     @PostMapping(path = "")
-    @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody Submarine submarine) {
         this.submarineService.save(submarine);
     }
 
     @PostMapping(path = "/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {
         this.submarineService.delete(id);
     }

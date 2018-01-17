@@ -19,13 +19,11 @@ public class CrewmanController {
     }
 
     @PostMapping(path = "")
-    @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody Crewman crewman) {
         this.crewmanService.save(crewman);
     }
 
     @PostMapping(path = "/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {
         this.crewmanService.delete(id);
     }
