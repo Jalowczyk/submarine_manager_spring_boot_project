@@ -32,4 +32,9 @@ public class SubmarineController {
     public Submarine show(@PathVariable Integer id) throws IdDoesNotExistException{
         return this.submarineService.findSubmarineById(id);
     }
+
+    @PutMapping(path = "/{id}")
+    public void update(@PathVariable Integer id) throws IdDoesNotExistException {
+        this.submarineService.updateSubmarine(id);
+    }
 }

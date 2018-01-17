@@ -38,4 +38,14 @@ public class SubmarineServiceImpl implements SubmarineService {
         }
         submarineRepository.delete(id);
     }
+
+    public void updateSubmarine(Integer id) throws IdDoesNotExistException {
+        Submarine submarine = submarineRepository.findOne(id);
+
+        if (submarine == null) {
+            throw new IdDoesNotExistException();
+        }
+
+        submarineRepository.save(submarine);
+    }
 }
