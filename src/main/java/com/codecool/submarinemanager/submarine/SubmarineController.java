@@ -37,8 +37,8 @@ public class SubmarineController {
     }
 
     @PutMapping(path = "/{id}")
-    public void updateSubmarine(@PathVariable Integer id) throws IdDoesNotExistException {
-        this.submarineService.updateSubmarine(id);
+    public void updateSubmarine(@PathVariable Integer id, @RequestBody Submarine submarine) throws IdDoesNotExistException {
+        this.submarineService.updateSubmarine(id, submarine);
     }
 
     @GetMapping(path = "/{id}/crewmen")

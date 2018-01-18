@@ -12,6 +12,6 @@ public interface SubmarineService {
     Submarine findSubmarineById(Integer id) throws IdDoesNotExistException;
     void saveSubmarine(Submarine submarine);
     void deleteSubmarine(Integer id) throws IdDoesNotExistException;
-    void updateSubmarine(Integer id) throws IdDoesNotExistException;
+    void updateSubmarine(Integer id, Submarine submarine) throws IdDoesNotExistException;
     Iterable<Crewman> showSubmarinesCrewmen(Integer id) throws IdDoesNotExistException;
 }
