@@ -34,7 +34,7 @@ public class CrewmanController {
     }
 
     @PutMapping(path = "/{id}")
-    public void updateCrewman(@PathVariable Integer id) throws IdDoesNotExistException {
-        this.crewmanService.updateCrewman(id);
+    public void updateCrewman(@PathVariable Integer id, @RequestBody Crewman updatedCrewman) throws IdDoesNotExistException {
+        this.crewmanService.updateCrewman(id, updatedCrewman);
     }
 }
