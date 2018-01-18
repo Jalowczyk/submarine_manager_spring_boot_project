@@ -18,7 +18,7 @@ public class Submarine {
     private String category;
     @NotEmpty
     private String name;
-    @OneToMany(mappedBy = "submarine", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "submarine", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JsonIgnoreProperties("submarine")
     @JsonIgnore
     private List<Crewman> crewmen = new ArrayList<>();
