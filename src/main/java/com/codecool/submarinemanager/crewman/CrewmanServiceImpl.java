@@ -16,7 +16,7 @@ public class CrewmanServiceImpl implements CrewmanService {
     }
 
     public Iterable<Crewman> findAllCrewmen() {
-        return crewmanRepository.findAll();
+        return crewmanRepository.findAllByArchivedFalse();
     }
 
     public Crewman findCrewmanById(Integer id) throws IdDoesNotExistException {
@@ -39,7 +39,7 @@ public class CrewmanServiceImpl implements CrewmanService {
 
     private Crewman returnCrewmanIfExists(Integer id) throws IdDoesNotExistException {
 
-        Crewman crewman = crewmanRepository.findOne(id);
+        Crewman crewman = crewmanRepository.findCrewmanByArchivedFalseAndId(id);
 
         if (crewman == null) {
             throw new IdDoesNotExistException("no record of such id in database");
