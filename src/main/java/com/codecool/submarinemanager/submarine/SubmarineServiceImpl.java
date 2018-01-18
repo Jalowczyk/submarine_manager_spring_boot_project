@@ -1,6 +1,7 @@
 package com.codecool.submarinemanager.submarine;
 
 import com.codecool.submarinemanager.crewman.Crewman;
+import com.codecool.submarinemanager.crewman.CrewmanService;
 import com.codecool.submarinemanager.exception.IdDoesNotExistException;
 import org.springframework.stereotype.Service;
 
@@ -8,9 +9,11 @@ import org.springframework.stereotype.Service;
 public class SubmarineServiceImpl implements SubmarineService {
 
     private SubmarineRepository submarineRepository;
+    private CrewmanService crewmanService;
 
-    public SubmarineServiceImpl(SubmarineRepository submarineRepository) {
+    public SubmarineServiceImpl(SubmarineRepository submarineRepository, CrewmanService crewmanService) {
         this.submarineRepository = submarineRepository;
+        this.crewmanService = crewmanService;
     }
 
     public Iterable<Submarine> findAllSubmarines() {
@@ -27,17 +30,18 @@ public class SubmarineServiceImpl implements SubmarineService {
 
     public void deleteSubmarine(Integer id) throws IdDoesNotExistException {
         Submarine submarine = returnSubmarineIfExists(id);
-        submarineRepository.delete(id);
+        submarineRepository.delete(submarine);
     }
 
-    public void updateSubmarine(Integer id) throws IdDoesNotExistException {
-        Submarine submarine = returnSubmarineIfExists(id);
+    public void updateSubmarine(Integer id, Submarine submarine) throws IdDoesNotExistException {
+        returnSubmarineIfExists(id);
+        submarine.setId(id);
         submarineRepository.save(submarine);
     }
 
     public Iterable<Crewman> showSubmarinesCrewmen(Integer id) throws IdDoesNotExistException {
         Submarine submarine = returnSubmarineIfExists(id);
-        return submarine.getCrewmen();
+        return crewmanService.findCrewmenBySubmarine(submarine.getId());
     }
 
     private Submarine returnSubmarineIfExists(Integer id) throws IdDoesNotExistException {
