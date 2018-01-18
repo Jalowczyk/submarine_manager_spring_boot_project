@@ -29,7 +29,8 @@ public class CrewmanServiceImpl implements CrewmanService {
 
     public void deleteCrewman(Integer id) throws IdDoesNotExistException {
         Crewman crewman = returnCrewmanIfExists(id);
-        crewmanRepository.delete(crewman);
+        crewman.setArchived(true);
+        crewmanRepository.save(crewman);
     }
 
     public void updateCrewman(Integer id, Crewman updatedCrewman) throws IdDoesNotExistException {
