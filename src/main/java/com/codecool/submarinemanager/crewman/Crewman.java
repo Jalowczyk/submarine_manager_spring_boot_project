@@ -1,6 +1,8 @@
 package com.codecool.submarinemanager.crewman;
 
 import com.codecool.submarinemanager.submarine.Submarine;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -18,10 +20,22 @@ public class Crewman {
     private String lastName;
     @NotNull
     private String rank;
+    @JsonIgnore
+    private boolean archived = false;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "submarine_id")
+    @JsonIgnoreProperties("crewmen")
     private Submarine submarine;
+
+    public boolean getArchived() {
+        return archived;
+    }
+
+    public void setArchived(boolean archived) {
+        this.archived = archived;
+    }
 
     public Submarine getSubmarine() {
         return submarine;
@@ -63,3 +77,4 @@ public class Crewman {
         this.rank = rank;
     }
 }
+

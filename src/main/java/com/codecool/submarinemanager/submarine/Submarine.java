@@ -2,6 +2,7 @@ package com.codecool.submarinemanager.submarine;
 
 import com.codecool.submarinemanager.crewman.Crewman;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -18,8 +19,19 @@ public class Submarine {
     @NotEmpty
     private String name;
     @OneToMany(mappedBy = "submarine", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("submarine")
     @JsonIgnore
-    private List<Crewman> crewmenList = new ArrayList<>();
+    private List<Crewman> crewmen = new ArrayList<>();
+    @JsonIgnore
+    private boolean archived = false;
+
+    public boolean getArchived() {
+        return archived;
+    }
+
+    public void setArchived(boolean archived) {
+        archived = archived;
+    }
 
     public Integer getId() {
         return id;
@@ -45,11 +57,11 @@ public class Submarine {
         this.name = name;
     }
 
-    public List<Crewman> getCrewmenList() {
-        return crewmenList;
+    public List<Crewman> getCrewmen() {
+        return crewmen;
     }
 
-    public void setCrewmenList(List<Crewman> crewmenList) {
-        this.crewmenList = crewmenList;
+    public void setCrewmen(List<Crewman> crewmen) {
+        this.crewmen = crewmen;
     }
 }
