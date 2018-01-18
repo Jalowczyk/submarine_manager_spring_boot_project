@@ -5,5 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 @Repository
 public interface CrewmanRepository extends CrudRepository<Crewman, Integer> {
-
+    public Iterable<Crewman> findAllByArchivedFalse();
+    public Crewman findCrewMemberByArchivedFalseAndId(Integer id);
 }
