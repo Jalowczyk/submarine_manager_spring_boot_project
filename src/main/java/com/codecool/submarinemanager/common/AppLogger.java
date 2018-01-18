@@ -3,11 +3,8 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 
-
-public class AppLogger implements ApplicationRunner {
+public class AppLogger  {
 
     private static final Logger logger = LogManager.getLogger(AppLogger.class);
     private static final Marker marker = MarkerManager.getMarker("ERROR");
@@ -18,9 +15,5 @@ public class AppLogger implements ApplicationRunner {
 
     public static Marker getMarker() {
         return marker;
-    }
-
-    @Override
-    public void run(ApplicationArguments applicationArguments) {
     }
 }
