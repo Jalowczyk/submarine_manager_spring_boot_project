@@ -32,9 +32,10 @@ public class CrewmanServiceImpl implements CrewmanService {
         crewmanRepository.delete(crewman);
     }
 
-    public void updateCrewman(Integer id) throws IdDoesNotExistException {
+    public void updateCrewman(Integer id, Crewman updatedCrewman) throws IdDoesNotExistException {
         Crewman crewman = returnCrewmanIfExists(id);
-        crewmanRepository.save(crewman);
+        updatedCrewman.setId(crewman.getId());
+        crewmanRepository.save(updatedCrewman);
     }
 
     public Iterable<Crewman> findCrewmenBySubmarine(Integer submarineId) {
