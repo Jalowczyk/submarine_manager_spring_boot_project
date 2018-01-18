@@ -1,5 +1,6 @@
 package com.codecool.submarinemanager.crewman;
 
+
 import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
 
@@ -7,4 +8,5 @@ import org.springframework.data.repository.CrudRepository;
 public interface CrewmanRepository extends CrudRepository<Crewman, Integer> {
     public Iterable<Crewman> findAllByArchivedFalse();
     public Crewman findCrewmanByArchivedFalseAndId(Integer id);
+    public Iterable<Crewman> findAllBySubmarineIdAndArchivedFalse(Integer submarineId);
 }
