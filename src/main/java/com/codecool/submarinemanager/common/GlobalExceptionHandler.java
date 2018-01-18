@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(IdDoesNotExistException.class)
     public ResponseEntity<ErrorResponse> handleIdDoesNotExistException(IdDoesNotExistException ex) {
-        ErrorResponse err = new ErrorResponse("id doesn't exist", ex.getMessage());
+        ErrorResponse err = new ErrorResponse("id doesn't exist or resource was archived", ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
     }
 
