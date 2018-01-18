@@ -3,9 +3,6 @@ package com.codecool.submarinemanager.submarine;
 import com.codecool.submarinemanager.crewman.Crewman;
 import com.codecool.submarinemanager.exception.IdDoesNotExistException;
 
-import javax.persistence.Id;
-import java.util.List;
-
 public interface SubmarineService {
 
     Iterable<Submarine> findAllSubmarines();

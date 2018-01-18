@@ -5,8 +5,6 @@ import com.codecool.submarinemanager.crewman.CrewmanService;
 import com.codecool.submarinemanager.exception.IdDoesNotExistException;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Field;
-
 @Service
 public class SubmarineServiceImpl implements SubmarineService {
 

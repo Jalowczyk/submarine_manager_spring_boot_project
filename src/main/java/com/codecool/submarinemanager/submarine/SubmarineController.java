@@ -4,8 +4,6 @@ import com.codecool.submarinemanager.crewman.Crewman;
 import com.codecool.submarinemanager.exception.IdDoesNotExistException;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping(path = "/submarines")
 public class SubmarineController {

@@ -1,9 +1,6 @@
 package com.codecool.submarinemanager.crewman;
 
-import com.codecool.submarinemanager.crewman.Crewman;
-import com.codecool.submarinemanager.crewman.CrewmanRepository;
 import com.codecool.submarinemanager.exception.IdDoesNotExistException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
