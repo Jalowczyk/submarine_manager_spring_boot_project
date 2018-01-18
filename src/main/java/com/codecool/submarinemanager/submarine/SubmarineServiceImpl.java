@@ -5,6 +5,8 @@ import com.codecool.submarinemanager.crewman.CrewmanService;
 import com.codecool.submarinemanager.exception.IdDoesNotExistException;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
+
 @Service
 public class SubmarineServiceImpl implements SubmarineService {
 
@@ -33,10 +35,11 @@ public class SubmarineServiceImpl implements SubmarineService {
         submarineRepository.delete(submarine);
     }
 
-    public void updateSubmarine(Integer id, Submarine submarine) throws IdDoesNotExistException {
-        returnSubmarineIfExists(id);
-        submarine.setId(id);
-        submarineRepository.save(submarine);
+    public void updateSubmarine(Integer id, Submarine updatedSubmarine) throws IdDoesNotExistException {
+        Submarine submarine = returnSubmarineIfExists(id);
+        updatedSubmarine.setId(id);
+        updatedSubmarine.setCrewmen(submarine.getCrewmen());
+        submarineRepository.save(updatedSubmarine);
     }
 
     public Iterable<Crewman> showSubmarinesCrewmen(Integer id) throws IdDoesNotExistException {
