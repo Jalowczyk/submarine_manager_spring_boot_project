@@ -37,6 +37,10 @@ public class CrewmanServiceImpl implements CrewmanService {
         crewmanRepository.save(crewman);
     }
 
+    public Iterable<Crewman> findCrewmenBySubmarine(Integer submarineId) {
+        return crewmanRepository.findAllBySubmarineIdAndArchivedFalse(submarineId);
+    }
+
     private Crewman returnCrewmanIfExists(Integer id) throws IdDoesNotExistException {
 
         Crewman crewman = crewmanRepository.findCrewmanByArchivedFalseAndId(id);

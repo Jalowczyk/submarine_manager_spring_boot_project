@@ -9,4 +9,5 @@ public interface CrewmanService {
     void saveCrewman(Crewman crewman);
     void deleteCrewman(Integer id) throws IdDoesNotExistException;
     void updateCrewman(Integer id) throws IdDoesNotExistException;
+    Iterable<Crewman> findCrewmenBySubmarine(Integer submarineId) throws IdDoesNotExistException;
 }
